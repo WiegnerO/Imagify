@@ -15,10 +15,11 @@ This API focuses on the search operations of the Imagify application where users
 - Characteristics
 - Image_Poster
 
-### Each Image will have a single:
+#### Each Image will have a single:
 - Image_id
 - Image 
 - Name
 - Image_Poster
-- Each Image value must have ONE or more:
+
+#### Each Image value must have ONE or more:
 - Characteristics
