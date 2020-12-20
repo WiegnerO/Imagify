@@ -6,7 +6,7 @@ This API focuses on the search operations of the Imagify application where users
 ## Search operations include:
 1. Users can search for a specific image if they know the image name
 2. Users can search for a group of images based on its image characteristics (ie If a user searches nature any image that has a nature characteristic will pop up)
-3.Users can use an existing image on the site in order to search images with similar characteristics (ie If a user searches using an image that that the characteristics nature, animal, africa than any image with those characteristics will appear in the results)
+3. Users can use an existing image on the site in order to search images with similar characteristics (ie If a user searches using an image that that the characteristics nature, animal, africa than any image with those characteristics will appear in the results)
 
 ### Each image has the following characteristics:
 - Image_id
