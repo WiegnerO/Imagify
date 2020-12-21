@@ -1,0 +1,24 @@
+{
+  "name": "imagify",
+  "version": "1.0.0",
+  "description": "This application is the back end API of an image repository application called Imagify\r This API is written using the Express Node.js web application framework\r Imagify is an ecommerce application where users can upload, search, delete, sell and buy images\r This API focuses on the search operations of the Imagify application where users have multiple ways of searching for an image or a group of images\r ## Search operations include:\r 1. Users can search for a specific image if they know the image name\r 2. Users can search for a group of images based on its image characteristics (ie If a user searches nature any image that has a nature characteristic will pop up)\r 3. Users can use an existing image on the site in order to search images with similar characteristics (ie If a user searches using an image that that the characteristics nature, animal, africa than any image with those characteristics will appear in the results)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WiegnerO/Imagify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WiegnerO/Imagify/issues"
+  },
+  "homepage": "https://github.com/WiegnerO/Imagify#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
