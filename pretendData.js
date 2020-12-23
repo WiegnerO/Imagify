@@ -1,16 +1,28 @@
 module.exports = {
     images : [
         {
-            "image": "1st image"
+            "image": "tiger",
+            "characteristics" : ["a" , "b" , "c"]
         },
         {
-            "image": "2nd image"
+            "image": "panda",
+            "characteristics" : ["a"]
         },
         {
-            "image": "3rd image"
+            "image": "led zepplin",
+            "characteristics" : ["b"]
         },
         {
-            "image": "a"
+            "image": "Kirk Hammet",
+            "characteristics" : ["z"]
+        },
+        {
+            "image": "a",
+            "characteristics" : ["a,n"]
+        },
+        {
+            "image": "b",
+            "characteristics" : ["g"]
         }
     ]
 };
