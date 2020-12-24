@@ -24,5 +24,21 @@ module.exports = {
             "image": "b",
             "characteristics" : ["g"]
         }
+    ],
+
+    characteristics : [
+        {   "characteristics" : "x",
+            "image " : 1
+        },
+        {   "characteristics" : "x",
+            "image " : 2
+        },
+        {   "characteristics" : "x",
+            "image " : 3
+        },
+        {   
+            "characteristics" : "y",
+            "image " : 2
+        }
     ]
 };

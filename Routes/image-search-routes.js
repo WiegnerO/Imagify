@@ -19,6 +19,7 @@ router.get('', (req, res) => {
  */
 router.get('/:image', (req, res) => {
     const image = req.params.image;
+    console.log(`get requset from api/search/${image} has been made`);
     //will remove this and add the db afterwards
     for(i=0 ; i < images.length ; i++){
        if(images[i].image == image){
@@ -28,34 +29,6 @@ router.get('/:image', (req, res) => {
        }
     }
     res.status(500).json({messages : `the get requset from has NOT been made : ${image} does NOT exist in the db` });
-});
-
-/**
- * This allows users get a a group of images with a specific characteristic
- */
-router.post('/:characteristic', (req, res) => {
-    const characteristic = req.body;
-    //will remove this and add the db afterwards
-    if(characteristic){
-        res.status(201).json(characteristic);
-        console.log(`get requset from api/${characteristic} has been made`);
-    }else{
-        res.status(500).json({messages : `the get requset from has NOT been made : ${characteristic} does NOT exist in the db` });
-    }
-});
-
-/**
-* This allows users to search images given an image using its characteristics
-*/
-router.get('/image/:image', (req, res) => {
-    const image = req.params.image;
-    //will remove this and add the db afterwards
-    if(image){
-        res.status(201).json(image);
-        console.log(`get requset from api/image/${image} has been made`);
-    }else{
-        res.status(500).json({messages : `the get requset from has NOT been made : ${image} does NOT exist in the db` });
-    }
 });
 
 module.exports = router
