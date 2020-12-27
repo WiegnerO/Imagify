@@ -24,3 +24,24 @@ This API focuses on the search operations of the Imagify application where users
 #### Each Image value must have ONE or more:
 - Characteristics
 
+# How to use the backend API =
+1. Open the app in a IDE and in the console type yarn start or npm start
+2. In order to post new values to the data base it is recommended to use an API Testing Tool such as Postman or Insomnia
+
+### Get the images
+- In your API testing tool make a GET request http://localhost:5000/api/search/
+- If you are using a browser type in the url http://localhost:5000/api/search/
+- You should see a list of images
+
+### Post a new image
+- In your API testing tool make a POST request http://localhost:5000/api/images
+- The Body of the post request should be in JSON format and will look like:
+{
+    "image_name": "< image_name_value >",
+    "image_object": "< image_object_value >",
+    "image_poster": "< image_poster_value >",
+    "price": "< image_price_value >",
+    "characteristics" : "< an array of characteristics >"
+}
+
+ 
