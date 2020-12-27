@@ -1,40 +1,61 @@
-/**
- * This route allows for the basic commands such as deleting and adding new images to the repository
- */
-
 const express = require('express');
 const router = express.Router();
 router.use(express.json());
-
-//temporary DB for now
-const images = require('../pretendData').images
+const DBSERVICE = require('../models/dbService')
 
 /**
  * This allows users add a new image
+ * The only precondition of the input object is that the characteristics do not contain any duplicates
  */
 router.post('', (req, res) => {
     console.log('post requset to api/images has been made');
-    const image = req.body
-    //will remove this and add the db afterwards
-    images.push(image);
-    res.status(201).json({message : image});
+    const image = req.body;
+    const convertedImage = {
+        "image_name": image.image_name,
+        "image_object": image.image_object,
+        "image_poster": image.image_poster,
+        "price": image.price
+    }
+    const characteristics = image.characteristics;
+    const promiseArray = [];
+    DBSERVICE.addImage(convertedImage)
+        .then(image_id =>{
+            characteristics.forEach(characteristic => {
+                let newcharacteristic = {
+                    "image_id" : image_id, 
+                    "characteristic" : characteristic
+                }
+                let x = DBSERVICE.addCharacteristic(newcharacteristic);
+                promiseArray.push(x);
+            });
+        Promise.all(promiseArray)
+        })
+        .then(result =>{
+            res.status(200).json({messages :result});
+        })
+        .catch(error =>{
+            res.status(500).json({messages :error});
+        })
 });
 
 /**
  * This allows users delete a image from the server
  */
-router.delete('/:image', (req, res) => {
-    console.log(`delete requset to api/images/${image} has been made`);
-    const image = req.params.image;
-    //will remove this and add the db afterwards
-    for(i=0 ; i < images.length ; i++){
-       if(images[i].image == image){
-        res.status(201).json(images[i]);
-        images.splice(i , 1);
-        return;
-       }
-    }
-    res.status(500).json({messages : `the delete requset from has NOT been made`});
+router.delete('/:image_id', (req, res) => {
+    const image_id = req.params.image_id;
+    console.log(`delete requset to api/images/${image_id} has been made`);
+    DBSERVICE.removeImage(image_id)
+    .then(count =>{
+        if(count > 0){
+            res.status(200).json({ message: "Deleted"})
+        }
+        else{
+            res.status(404).json({ message: "Image does not"})
+        }
+    })
+    .catch( error => {
+        res.status(500).json({ message: error})
+    })
 });
 
 module.exports = router

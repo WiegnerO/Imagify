@@ -23,3 +23,4 @@ This API focuses on the search operations of the Imagify application where users
 
 #### Each Image value must have ONE or more:
 - Characteristics
+
