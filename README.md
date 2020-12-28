@@ -1,7 +1,7 @@
 # Imagify
 This application is the back end API of an image repository application called Imagify
 This API is written using the Express Node.js web application framework
-Imagify is an ecommerce application where users can upload, search, delete, sell and buy images
+Imagify is an ecommerce application where users can upload, search, delete, sell and buy images<br>
 This API focuses on the search operations of the Imagify application where users have multiple ways of searching for an image or a group of images
 
 ## Search operations include:
