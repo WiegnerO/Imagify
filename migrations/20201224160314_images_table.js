@@ -6,7 +6,6 @@ exports.up = function(knex) {
             .unique()
             .index();
         table.blob('image_object');
-        table.string('foo');
         table.string('image_poster').notNullable();
         table.decimal('price').notNullable()
       });
