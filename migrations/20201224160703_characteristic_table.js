@@ -6,7 +6,9 @@ exports.up = function(knex) {
             .inTable('images')
             .onDelete('CASCADE');
         table.string('characteristic').notNullable();
-      })
+
+        table.primary(['image_id', 'characteristic']);
+      });
 };
 
 exports.down = function(knex) {

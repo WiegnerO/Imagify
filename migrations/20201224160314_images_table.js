@@ -3,11 +3,14 @@ exports.up = function(knex) {
         table.increments();
         table.string('image_name')
             .notNullable()
-            .unique();
-        table.string('image_object');
+            .unique()
+            .index();
+        table.blob('image_object');
+        table.string('foo');
         table.string('image_poster').notNullable();
         table.decimal('price').notNullable()
-      })
+      });
+      
 };
 
 exports.down = function(knex) {
