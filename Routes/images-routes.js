@@ -13,14 +13,13 @@ router.post('', (req, res) => {
             image_object,
             image_poster,
             price,
-            characteristic} = req.body;
+            characteristics} = req.body;
     const convertedImage = {
         "image_name": image_name,
         "image_object": image_object,
         "image_poster": image_poster,
         "price": price
     }
-    const characteristics = characteristic;
     const promiseArray = [];
     DBSERVICE.addImage(convertedImage)
         .then(image_id =>{
