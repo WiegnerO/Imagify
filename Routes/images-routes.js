@@ -9,19 +9,10 @@ const DBSERVICE = require('../models/dbService')
  */
 router.post('', (req, res) => {
     console.log('post requset to api/images has been made');
-    const { image_name,
-            image_object,
-            image_poster,
-            price,
-            characteristics} = req.body;
-    const convertedImage = {
-        "image_name": image_name,
-        "image_object": image_object,
-        "image_poster": image_poster,
-        "price": price
-    }
+    const inputImage = req.body
+    const { characteristics } = req.body;
     const promiseArray = [];
-    DBSERVICE.addImage(convertedImage)
+    DBSERVICE.addImage(inputImage)
         .then(image_id =>{
             characteristics.forEach(characteristic => {
                 let newcharacteristic = {

@@ -17,7 +17,13 @@ module.exports = {
  * This adds an image  in the images table
  */
 async function addImage(image){
-    const [id] = await db('images').insert(image);
+    const convertedImage = {
+        "image_name": image.image_name,
+        "image_object": image.image_object,
+        "image_poster": image.image_poster,
+        "price": image.price
+    }
+    const [id] = await db('images').insert(convertedImage);
     return id;
 }
 
