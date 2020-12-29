@@ -2,6 +2,17 @@ const express = require('express');
 const server = express();
 server.use(express.json());
 
+/**
+ * Help with CORS issues
+ */
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, x-requested-with, content-type, accept, authorization");
+    next();
+  });
+
 //require the routes
 const imagesRouter = require('../Routes/images-routes.js');
 const imageSearchRouter = require('../Routes/image-search-routes.js');

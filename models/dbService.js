@@ -46,7 +46,8 @@ function findImage(){
  * This query will return all characteristics
  */
 function findCharacteristics(){
-    return db('characteristics');
+    return db('characteristics')
+    .groupBy('characteristics.characteristic');
 }
 
 /**

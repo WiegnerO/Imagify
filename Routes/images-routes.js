@@ -14,21 +14,23 @@ router.post('', (req, res) => {
     const promiseArray = [];
     DBSERVICE.addImage(inputImage)
         .then(image_id =>{
-            characteristics.forEach(characteristic => {
-                let newcharacteristic = {
-                    "image_id" : image_id, 
-                    "characteristic" : characteristic
-                }
-                let x = DBSERVICE.addCharacteristic(newcharacteristic);
-                promiseArray.push(x);
-            });
-        Promise.all(promiseArray)
+            if(!!characteristics){
+                characteristics.forEach(characteristic => {
+                    let newcharacteristic = {
+                        "image_id" : image_id, 
+                        "characteristic" : characteristic
+                    }
+                    let x = DBSERVICE.addCharacteristic(newcharacteristic);
+                    promiseArray.push(x);
+                });
+                Promise.all(promiseArray)
+            }
         })
         .then(result =>{
-            res.status(200).json({messages :result});
+            res.status(200).json({messages : "POST request was succesful"});
         })
-        .catch(error =>{
-            res.status(500).json({messages :error});
+        .catch(err =>{
+            res.status(500).json({messages : "Post request has not been made : " + err});
         })
 });
 

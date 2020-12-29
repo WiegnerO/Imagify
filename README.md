@@ -41,6 +41,9 @@ This API focuses on the search operations of the Imagify application where users
 # How to use the backend API
 1. Open the app in a IDE and in the console type yarn start or npm start
 2. When testing the API recommended to use an API Testing Tool such as Postman or Insomnia
+3. To delete the server data in the terminal type:
+    - npx knex migrate:rollback
+    - npx knex migrate:latest
 
 ### Get all the images data
 - In your API testing tool make a GET request http://localhost:5000/api/search/
