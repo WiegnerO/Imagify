@@ -93,8 +93,3 @@ This API can be used with or without the corresponding application Imagify_UI ht
 }
 - If you are using the Imagify_UI application navigate to http://localhost:4200/addImagePage and fill out the form to add a new image
 
-### Delete an image
-- In your API testing tool make a POST request http://localhost:5000/api/images/:image_id
-- This will delete the image that has the id :image_id 
-
- 
