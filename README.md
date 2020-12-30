@@ -39,9 +39,10 @@ This API can be used with or without the corresponding application Imagify_UI ht
 #### Each Image value must have ONE or more:
 - Characteristics
 
-# How to use the backend API
-1. Open the app in a IDE and in the console type yarn start or npm start
-2. When testing the API recommended to use an API Testing Tool such as Postman or Insomnia
+# How to setup the backend API
+1. Clone or donwload the repistory make sure your machine has node, nodemon, express, knex, sqlite3
+2. Open the app in a IDE and in the console type <b>yarn start</b> or <b>npm start</b>
+3. When testing the API recommended to use an API Testing Tool such as Postman or Insomnia or the Imagify_UI application
 
 ### Get all the images data
 - In your API testing tool make a GET request http://localhost:5000/api/search/
