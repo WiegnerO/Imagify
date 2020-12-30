@@ -1,13 +1,14 @@
 # Imagify
-This application is the back end API of an image repository application called Imagify
-This API is written using the Express Node.js web application framework
+This application is the back end API of an image repository application called Imagify<br>
+This API is written using the Express Node.js web application framework<br>
 Imagify is an ecommerce application where users can upload, search, delete, sell and buy images<br>
-This API focuses on the search operations of the Imagify application where users have multiple ways of searching for an image or a group of images
+This API focuses on the search operations of the Imagify application where users have multiple ways of searching for an image or a group of images<br>
+This API can be used with or without the corresponding application Imagify_UI https://github.com/WiegnerO/Imagify_UI/tree/main/Imagify (This is the frontend UI of this application)
 
 ## Search operations include:
 1. Users can search for a specific image if they know the image name
 2. Users can search for a group of images based on its image characteristics (ie If a user searches nature any image that has a nature characteristic will pop up)
-3. Users can use an existing image on the site in order to search images with similar characteristics (ie If a user searches using an image that that the characteristics nature, animal, africa than any image with those characteristics will appear in the results)
+3. Users can use an existing image on the site in order to search images with similar characteristics (ie If a user searches using an image that that the characteristics nature, animal, Africa than any image with those characteristics will appear in the results)
 
 ## Database schema:
 ### images
@@ -46,10 +47,12 @@ This API focuses on the search operations of the Imagify application where users
 - In your API testing tool make a GET request http://localhost:5000/api/search/
 - If you are using a browser type in the url http://localhost:5000/api/search/
 - You should see a list of images
+- If you are using the Imagify_UI application navigate to http://localhost:4200/homePage
 
 ### Get all the characteristic data
 - In your API testing tool make a GET request http://localhost:5000/api/characteristic/
 - If you are using a browser type in the url http://localhost:5000/api/characteristic/
+- If you are using the Imagify_UI application navigate to http://localhost:4200/characteristicPage
 - You should see a list of image id with an associated characteristic
 
 ### Get a specific image data
@@ -60,6 +63,7 @@ This API focuses on the search operations of the Imagify application where users
 ### Get all images having a certian characteristic
 - In your API testing tool make a GET request http://localhost:5000/api/search/advanced/:char
 - If you are using a browser type in the url http://localhost:5000/api/search/advanced/:char
+- If you are using the Imagify_UI application navigate to http://localhost:4200/characteristicPage and either click on a characteristic or search it
 - This will return a list of images containing the characteristic :char
 
 ### Get all images that have a characteristic in common with a specified image
@@ -73,6 +77,7 @@ This API focuses on the search operations of the Imagify application where users
   "price": "< image_price_value >",\
   "characteristics" : "< an array of characteristics >"\
 }
+- If you are using the Imagify_UI application navigate to http://localhost:4200/homePage and select the "see similar images" button underneath the intended image
 - This will return a list of images containing a characteristic incommon with the image passed
 
 ### Post a new image
@@ -85,6 +90,7 @@ This API focuses on the search operations of the Imagify application where users
   "price": "< image_price_value >",\
   "characteristics" : "< an array of characteristics >"\
 }
+- If you are using the Imagify_UI application navigate to http://localhost:4200/addImagePage and fill out the form to add a new image
 
 ### Delete an image
 - In your API testing tool make a POST request http://localhost:5000/api/images/:image_id
