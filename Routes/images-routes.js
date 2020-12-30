@@ -8,7 +8,7 @@ const DBSERVICE = require('../models/dbService')
  * The only precondition of the input object is that the characteristics do not contain any duplicates
  */
 router.post('', (req, res) => {
-    console.log('post requset to api/images has been made');
+    console.log('POST requset to api/images has been made');
     const inputImage = req.body
     const { characteristics } = req.body;
     const promiseArray = [];
@@ -20,8 +20,8 @@ router.post('', (req, res) => {
                         "image_id" : image_id, 
                         "characteristic" : characteristic
                     }
-                    let x = DBSERVICE.addCharacteristic(newcharacteristic);
-                    promiseArray.push(x);
+                    let newCharFunc = DBSERVICE.addCharacteristic(newcharacteristic);
+                    promiseArray.push(newCharFunc);
                 });
                 Promise.all(promiseArray)
             }
@@ -30,7 +30,7 @@ router.post('', (req, res) => {
             res.status(200).json({messages : "POST request was succesful"});
         })
         .catch(err =>{
-            res.status(500).json({messages : "Post request has not been made : " + err});
+            res.status(500).json({messages : "POST request has not been made : " + err});
         })
 });
 
@@ -39,14 +39,14 @@ router.post('', (req, res) => {
  */
 router.delete('/:image_id', (req, res) => {
     const image_id = req.params.image_id;
-    console.log(`delete requset to api/images/${image_id} has been made`);
+    console.log(`DELETE requset to api/images/${image_id} has been made`);
     DBSERVICE.removeImage(image_id)
     .then(count =>{
         if(count > 0){
             res.status(200).json({ message: "Deleted"})
         }
         else{
-            res.status(404).json({ message: "Image does not"})
+            res.status(404).json({ message: "Image does not exist"})
         }
     })
     .catch( error => {

@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 router.use(express.json());
-const imageDB = require('../models/dbService')
 const DBSERVICE = require('../models/dbService')
 
 
@@ -9,13 +8,13 @@ const DBSERVICE = require('../models/dbService')
  * This allows users get all the images
  */
 router.get('', (req, res) => {
-    console.log('get requset from api/image has been made');
-    imageDB.findImage()
+    console.log('GET requset from api/image has been made');
+    DBSERVICE.findImage()
         .then(imageData =>{
             res.status(200).json(imageData);
         })
         .catch(error =>{
-            res.status(200).json(error);
+            res.status(500).json(error);
         })
 });
 
@@ -24,10 +23,13 @@ router.get('', (req, res) => {
  */
 router.get('/:image_name', (req, res) => {
     const image_name = req.params.image_name;
-    console.log(`get requset from api/search/${image_name} has been made`);
+    console.log(`GET requset from api/search/${image_name} has been made`);
     DBSERVICE.findImageUsingName(image_name)
     .then(image => {
         res.status(200).json(image);
+    })
+    .catch(error =>{
+        res.status(500).json(error);
     })
 });
 
