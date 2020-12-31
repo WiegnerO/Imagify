@@ -10,7 +10,8 @@ module.exports = {
     findCharacteristics,
     removeImage,
     findImagesUsingCharacteristic,
-    findImagesUsingImage
+    findImagesUsingImage,
+    getImageCharacteristic
 };
 
 /**
@@ -65,6 +66,11 @@ function removeImage(id){
 function findImageUsingName(image_name){
     return db('images')
     .where({ image_name })
+}
+
+function getImageCharacteristic(image_id){
+    return db('characteristics')
+    .where({image_id})
 }
 
 /**

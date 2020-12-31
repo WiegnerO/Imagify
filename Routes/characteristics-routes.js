@@ -7,8 +7,23 @@ const DBSERVICE = require('../models/dbService')
  * This allows users get all the characteristics
  */
 router.get('', (req, res) => {
-    console.log('GET requset from api/search has been made');
+    console.log('GET requset from api/characteristic has been made');
     DBSERVICE.findCharacteristics()
+        .then(characteristicData =>{
+            res.status(200).json(characteristicData);
+        })
+        .catch(error =>{
+            res.status(500).json(error);
+        })
+});
+
+/**
+ * This allows users get the characteristics of a specific image
+ */
+router.get('/:id', (req, res) => {
+    console.log('GET requset from api/characteristic has been made');
+    const id = req.params.id;
+    DBSERVICE.getImageCharacteristic(id)
         .then(characteristicData =>{
             res.status(200).json(characteristicData);
         })
