@@ -1,6 +1,4 @@
 # Imagify
-This application is the back end API of an image repository application called Imagify<br>
-This API is written using the Express Node.js web application framework<br>
 Imagify is an ecommerce application where users can upload, search, delete, sell and buy images<br>
 This API focuses on the search operations of the Imagify application where users have multiple ways of searching for an image or a group of images<br>
 This API can be used with or without the corresponding application Imagify_UI https://github.com/WiegnerO/Imagify_UI/tree/main/Imagify (This is the frontend UI of this application)
@@ -9,6 +7,11 @@ This API can be used with or without the corresponding application Imagify_UI ht
 1. Users can search for a specific image if they know the image name
 2. Users can search for a group of images based on its image characteristics (ie If a user searches nature any image that has a nature characteristic will pop up)
 3. Users can use an existing image on the site in order to search images with similar characteristics (ie If a user searches using an image that that the characteristics nature, animal, Africa than any image with those characteristics will appear in the results)
+
+# Imagify Stack
+This is the back end API of an image repository application called Imagify<br>
+This API is written using the Express Node.js web application framework<br>
+The database is sqlite3 using Knex SQL query builder<br>
 
 ## Database schema:
 ### images
@@ -47,14 +50,14 @@ This API can be used with or without the corresponding application Imagify_UI ht
 ### Get all the images data
 - In your API testing tool make a GET request http://localhost:5000/api/search/
 - If you are using a browser type in the url http://localhost:5000/api/search/
-- You should see a list of images
 - If you are using the Imagify_UI application navigate to http://localhost:4200/homePage
+- You should see a list of images
 
 ### Get all the characteristic data
 - In your API testing tool make a GET request http://localhost:5000/api/characteristic/
 - If you are using a browser type in the url http://localhost:5000/api/characteristic/
 - If you are using the Imagify_UI application navigate to http://localhost:4200/characteristicPage
-- You should see a list of image id with an associated characteristic
+- You should see a list of all the characteristics
 
 ### Get a specific image data
 - In your API testing tool make a GET request http://localhost:5000/api/search/:image_name
@@ -94,7 +97,8 @@ This API can be used with or without the corresponding application Imagify_UI ht
 - If you are using the Imagify_UI application navigate to http://localhost:4200/addImagePage and fill out the form to add a new image
 
 ### Delete an image
-In your API testing tool make a POST request http://localhost:5000/api/images/:image_id <br>
-This will delete the image that has the id :image_id <br>
-If you are using the Imagify_UI application navigate to http://localhost:4200/characteristicPage and select the delete option on the desired image<br>
+- In your API testing tool make a DELETE request http://localhost:5000/api/images/:image_id <br>
+- If you are using a browser type in the url http://localhost:5000/api/images/:image_id<br>
+- If you are using the Imagify_UI application navigate to http://localhost:4200/characteristicPage and select the delete option on the desired image<br>
+- This will delete the image that has the id :image_id <br>
 
