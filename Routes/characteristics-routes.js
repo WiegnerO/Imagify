@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 router.use(express.json());
-const DBSERVICE = require('../models/dbService')
+const DBSERVICE = require('../models/dbService');
+const CONSOLEOUTPUT = require('../Services/consoleOutputs');
 
 /**
  * This allows users get all the characteristics
  */
 router.get('', (req, res) => {
-    console.log('GET requset from api/characteristic has been made');
+    console.log(CONSOLEOUTPUT.requestConsole(req));
     DBSERVICE.findCharacteristics()
         .then(characteristicData =>{
             res.status(200).json(characteristicData);
@@ -21,7 +22,7 @@ router.get('', (req, res) => {
  * This allows users get the characteristics of a specific image
  */
 router.get('/:id', (req, res) => {
-    console.log('GET requset from api/characteristic has been made');
+    console.log(CONSOLEOUTPUT.requestConsole(req));
     const id = req.params.id;
     DBSERVICE.getImageCharacteristic(id)
         .then(characteristicData =>{
@@ -36,7 +37,7 @@ router.get('/:id', (req, res) => {
  * This allows users add a new characteristics
  */
 router.post('', (req, res) => {
-    console.log('POST requset to api/characteristic has been made');
+    console.log(CONSOLEOUTPUT.requestConsole(req));
     const characteristics = req.body;
     DBSERVICE.addCharacteristic(characteristics)
         .then(result =>{

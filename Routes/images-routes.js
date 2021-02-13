@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 router.use(express.json());
-const DBSERVICE = require('../models/dbService')
+const DBSERVICE = require('../models/dbService');
+const CONSOLEOUTPUT = require('../Services/consoleOutputs');
 
 /**
  * This allows users add a new image
  * The only precondition of the input object is that the characteristics do not contain any duplicates
  */
 router.post('', (req, res) => {
-    console.log('POST requset to api/images has been made');
+    console.log(CONSOLEOUTPUT.requestConsole(req));
     const inputImage = req.body
     const { characteristics } = req.body;
     const promiseArray = [];
@@ -39,7 +40,7 @@ router.post('', (req, res) => {
  */
 router.delete('/:image_id', (req, res) => {
     const image_id = req.params.image_id;
-    console.log(`DELETE requset to api/images/${image_id} has been made`);
+    console.log(CONSOLEOUTPUT.requestConsole(req));
     DBSERVICE.removeImage(image_id)
     .then(count =>{
         if(count > 0){

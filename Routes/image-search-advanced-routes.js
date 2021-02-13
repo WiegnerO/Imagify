@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 router.use(express.json());
-const DBSERVICE = require('../models/dbService')
+const DBSERVICE = require('../models/dbService');
+const CONSOLEOUTPUT = require('../Services/consoleOutputs');
 
 /**
  * This allows users get all the images with a specific characteristic
  */
 router.get('/:char', (req, res) => {
     const characteristic = req.params.char;
-    console.log(`GET requset from api/search/advanced has been made`);
+    console.log(CONSOLEOUTPUT.requestConsole(req));
     DBSERVICE.findImagesUsingCharacteristic(characteristic)
     .then(images => {
         res.status(201).json(images);
@@ -23,7 +24,7 @@ router.get('/:char', (req, res) => {
 */
 router.post('', (req, res) => {
     const image = req.body;
-    console.log(`POST requset from api/search/advanced/`);
+    console.log(CONSOLEOUTPUT.requestConsole(req));
     DBSERVICE.findImagesUsingImage(image)
     .then(images => {
         res.status(201).json(images);
