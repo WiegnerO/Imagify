@@ -3,6 +3,11 @@ Imagify is an ecommerce application where users can upload, search, delete, sell
 This API focuses on the search operations of the Imagify application where users have multiple ways of searching for an image or a group of images<br>
 This API can be used with or without the corresponding application Imagify_UI https://github.com/WiegnerO/Imagify_UI/tree/main/Imagify (This is the frontend UI of this application)
 
+
+# Requirements
+node -v12.x.x<br>
+npm -v6.x.x<br>
+
 ## Search operations include:
 1. Users can search for a specific image if they know the image name
 2. Users can search for a group of images based on its image characteristics (ie If a user searches nature any image that has a nature characteristic will pop up)
